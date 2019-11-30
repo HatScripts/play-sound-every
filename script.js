@@ -80,7 +80,7 @@ function stop() {
 }
 
 function initAudio() {
-  audio = new Audio("https://hatscripts.com/notifications/" + sndInput.value + ".mp3");
+  audio = new Audio("sounds/" + sndInput.value + ".mp3");
   audio.volume = volInput.value / 100;
 }
 
