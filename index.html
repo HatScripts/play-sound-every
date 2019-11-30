@@ -1,26 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" display="none">
-  <symbol viewBox="0 0 24 24" id="link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></symbol>
-  <symbol viewBox="0 0 24 24" id="speaker"><rect x="4" y="2" width="16" height="20"></rect><circle cx="12" cy="14" r="4"></circle><rect x="12" y="6" width="0.01" height="0.01"></rect></symbol>
-  <symbol viewBox="0 0 24 24" id="refresh"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></symbol>
-  <symbol viewBox="0 0 24 24" id="volume-0"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></symbol>
-  <symbol viewBox="0 0 24 24" id="volume-1"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></symbol>
-  <symbol viewBox="0 0 24 24" id="volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></symbol>
-</svg>
+<html>
 
-<!--
-TODO:
-* i18n; translations for strings, etc.
-* Make cookies optional. Cookies are used to save the user's settings, e.g. sound effect, frequency, and volume.
-* Hotkeys, e.g. up/down = volume controls, left/right = frequency, assign a hotkey to sounds.
-* Better support for screen-readers as they are currently untested
--->
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
 
-<div class="container mt-5"> <!-- TODO: Make this narrower on desktop -->
-  <div class="row input-group mb-3">
-    <label for="sound" class="col-sm-4 col-form-label pl-1">
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" display="none">
+    <symbol viewBox="0 0 24 24" id="link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="speaker"><rect x="4" y="2" width="16" height="20"></rect><circle cx="12" cy="14" r="4"></circle><rect x="12" y="6" width="0.01" height="0.01"></rect></symbol>
+    <symbol viewBox="0 0 24 24" id="refresh"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="volume-0"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></symbol>
+    <symbol viewBox="0 0 24 24" id="volume-1"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></symbol>
+  </svg>
+
+  <!--
+  TODO:
+  * i18n; translations for strings, etc.
+  * Make cookies optional. Cookies are used to save the user's settings, e.g. sound effect, frequency, and volume.
+  * Hotkeys, e.g. up/down = volume controls, left/right = frequency, assign a hotkey to sounds.
+  * Better support for screen-readers as they are currently untested
+  -->
+
+  <div class="container mt-5">
+    <!-- TODO: Make this narrower on desktop -->
+    <div class="row input-group mb-3">
+      <label for="sound" class="col-sm-4 col-form-label pl-1">
       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#speaker"></use></svg>Sound</label>
-<!--     <input type="text" id="url" value="https://freesound.org/data/previews/131/131660_2398403-lq.mp3" spellcheck="false" class="form-control" aria-label="Sound URL"> -->
-    <select id="sound" class="form-control"> <!-- TODO: Add icons -->
+      <!--  <input type="text" id="url" value="https://freesound.org/data/previews/131/131660_2398403-lq.mp3" spellcheck="false" class="form-control" aria-label="Sound URL"> -->
+      <select id="sound" class="form-control"> <!-- TODO: Add icons -->
       <option value="boing">           Boing</option>
       <option value="chime">           Chime</option>
       <option value="descend">         Descend</option>
@@ -47,9 +57,9 @@ TODO:
       <option value="typewriter_bell"> Typewriter bell</option>
       <option value="ultranova">       Ultranova</option>
     </select>
-  </div>
-  <div class="row input-group mb-3">
-    <label for="secs" class="col-sm-4 col-form-label pl-1">
+    </div>
+    <div class="row input-group mb-3">
+      <label for="secs" class="col-sm-4 col-form-label pl-1">
       <!--
       TODO:
       Clicking this svg icon should do something intuitive to the input box to the right.
@@ -58,24 +68,28 @@ TODO:
       * Toggling between the previous interval and the current one, i.e. undo/redo
       -->
       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#refresh"></use></svg>Repeat every</label>
-    <input type="number" id="secs" value="30" min="1" step="1" class="form-control" aria-label="Interval in seconds" aria-describedby="secs-addon">
-    <div class="input-group-append"> <!-- TODO: Add other options as dropdown, e.g. minutes, hours, etc. -->
-      <span class="input-group-text" id="secs-addon">seconds</span>
+      <input type="number" id="secs" value="30" min="1" step="1" class="form-control" aria-label="Interval in seconds" aria-describedby="secs-addon">
+      <div class="input-group-append">
+        <!-- TODO: Add other options as dropdown, e.g. minutes, hours, etc. -->
+        <span class="input-group-text" id="secs-addon">seconds</span>
+      </div>
+    </div>
+    <div class="row input-group mb-3">
+      <label for="volume" class="col-sm-4 col-form-label pl-1">
+    <svg id="toggle-mute"><use id="volume-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#volume-2"></use></svg>Volume</label>
+      <input type="range" id="volume" value="50" min="0" max="100" step="any" class="form-control" aria-label="Volume">
+    </div>
+    <div class="row input-group mb-5">
+      <button type="button" id="start" class="btn btn-primary btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off">
+      <svg viewBox="0 0 24 24"></svg><span>Start</span></button>
+    </div>
+
+    <div id="countdown" class="shrunken">
+      <div class="num"></div>
+      <!-- Don't adjust size here, instead change $countdown_size value in SCSS. -->
+      <svg viewBox="0 0 40 40"><circle r="18" cx="20" cy="20"></circle></svg>
     </div>
   </div>
-  <div class="row input-group mb-3">
-    <label for="volume" class="col-sm-4 col-form-label pl-1">
-    <svg id="toggle-mute"><use id="volume-icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#volume-2"></use></svg>Volume</label>
-    <input type="range" id="volume" value="50" min="0" max="100" step="any" class="form-control" aria-label="Volume">
-  </div>
-  <div class="row input-group mb-5">
-    <button type="button" id="start" class="btn btn-primary btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off">
-      <svg viewBox="0 0 24 24"></svg><span>Start</span></button>
-  </div>
+</body>
 
-  <div id="countdown" class="shrunken">
-    <div class="num"></div>
-    <!-- Don't adjust size here, instead change $countdown_size value in SCSS. -->
-    <svg viewBox="0 0 40 40"><circle r="18" cx="20" cy="20"></circle></svg>
-  </div>
-</div>
+</html>
